@@ -1,7 +1,8 @@
 #include <U8g2lib.h>
 #include <U8x8lib.h>
+#include <GyverOLED.h>
 #include <MIDI.h>
-//#include <Wire.h>
+#include <Wire.h>
 
 byte pcBuffer[16];
 byte sysEx[9]={0x41,0x10,0x42,0x12,0x40}; //excludes boundaries. array space for channel, upper byte, lower byte, checksum.
@@ -23,16 +24,10 @@ boolean logEn=false;
 boolean gfxEn=true;
 
 MIDI_CREATE_INSTANCE(HardwareSerial, Serial1, MIDI);
-//d70 buddy U8G2_SSD1306_128X64_NONAME_F_4W_HW_SPI u8g2(U8G2_R0, 31, 30, 29);
-//U8G2_SSD1306_128X64_NONAME_F_4W_HW_SPI u8g2(U8G2_R0, 9,8,7);
 //U8G2_SH1106_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
+GyverOLED<SSH1106_128x64, OLED_BUFFER> oled;
 
 
-//U8G2_SH1106_128X64_NONAME_F_SW_I2C u8g2(U8G2_R0, A2, A3, U8X8_PIN_NONE);
-U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
-//U8G2_SSD1306_128X64_NONAME_F_SW_I2C u8g2(U8G2_R0, /* clock=*/ 7, /* data=*/ 8, /* reset=*/ U8X8_PIN_NONE);
-
-//U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0);
 const int bSC55=47;
 const int bSC88=46;
 const int bSC88p=45;
@@ -48,22 +43,20 @@ void setup() {
   pinMode(bSC88, INPUT_PULLUP);
   pinMode(bSC88p, INPUT_PULLUP);
   pinMode(b8820, INPUT_PULLUP);
-  u8g2.setBusClock(400000);
   MIDI.begin(MIDI_CHANNEL_OMNI);
   MIDI.turnThruOn();
   MIDI.setThruFilterMode(midi::Thru::Full);
 
-  
   lastTime=millis();
   gfxTime=millis();
   Serial.begin(9600);
-  //u8g2.setI2CAddress(0x3c);
-  // Wire.setClock(1000000);
-  // Wire.begin();
-  //attachInterrupt(digitalPinToInterrupt(19), read_midi, FALLING);
-  u8g2.begin();
-  u8g2.clearBuffer();
-//  delay(850);
+
+  oled.init();  // initialization
+  Wire.setClock(800000L); // max. 800'000
+
+  // --------------------------
+  // I2C speed setting
+
   gfxInit();
   gfxMessage(messages[0]);
   gfxSetMode(0);
@@ -72,7 +65,8 @@ void setup() {
   gfxSetMap(3);
 }
 
-void read_midi(){
+void loop() {
+
   if (MIDI.read()){
     if (MIDI.getType()==midi::ProgramChange){
       pcBuffer[MIDI.getChannel()-1]=MIDI.getData1();    
@@ -88,17 +82,15 @@ void read_midi(){
     else if (MIDI.getType()==midi::NoteOff){
         gfxSetChannel(MIDI.getChannel()-1,0);
     }
-    else if (MIDI.getType()==midi::SystemExclusive && MIDI.getSysExArray()[5]==0x20 && MIDI.getSysExArray()[6]==0x00 && MIDI.getSysExArray()[7]==0x00){
-      for(int i=8;i<27;i++){
-        sysMsg[i-8]=MIDI.getSysExArray()[i];
-      }
-      gfxMessage(sysMsg); //sysex message
-    }
+    // else if (MIDI.getType()==midi::SystemExclusive && MIDI.getSysExArray()[5]==0x20 && MIDI.getSysExArray()[6]==0x00 && MIDI.getSysExArray()[7]==0x00){
+    //   for(int i=8;i<27;i++){
+    //     sysMsg[i-8]=MIDI.getSysExArray()[i];
+    //   }
+    //   gfxMessage(sysMsg); //sysex message
+    // }
   }
-}
-
-void poll_buttons(){
-    for(int i=41;i<48;i++){
+  
+  for(int i=41;i<42;i++){
     if(!digitalRead(i) && lastButton==false){
       lastButton=true;
       lastTime=millis();
@@ -157,107 +149,142 @@ void poll_buttons(){
       }
     }
   }
-}
 
-void loop() {
-  read_midi();
-  poll_buttons();
   if(millis()-lastTime>1000){  //allows new button presses after 1 sec
       lastButton=false;
       lastTime=millis();
   }
-  if(millis()-gfxTime>100){    //update screen each 50ms
+
+  if(millis()-gfxTime>50){    //update screen each 50ms
     for(int i=0;i<16;i++){
       if(gfxGraph[i]){
         gfxGraph[i]=gfxGraph[i]-1;
         gfxSetGraph(i,gfxGraph[i]);
       }
     }
-    u8g2.sendBuffer();
+    //u8g2.sendBuffer();
+    oled.update(); 
     gfxTime=millis();
-  }
+  } 
 }    
 
 void gfxInit(){
-  u8g2.clearBuffer();
+  oled.clear();   // clear display (or buffer)
+  oled.update();  // update. Only for buffered mode! OLED_BUFFER
   gfxMapInit();
   gfxModeInit();
-  u8g2.sendBuffer();
 }
 
 void gfxMapInit(){
-  u8g2.setDrawColor(0);
-  u8g2.drawBox(0,55,128,9);
-  u8g2.setDrawColor(1);
-  u8g2.drawRFrame(0,55,128,9,2);
-  u8g2.setFont(u8g2_font_micro_tr);
+  oled.clear(0,55,128,9);
+  oled.roundRect(0,55,128,9,0);
+  // u8g2.setDrawColor(0);
+  // u8g2.drawBox(0,55,128,9);
+  // u8g2.setDrawColor(1);
+  // u8g2.drawRFrame(0,55,128,9,2);
+  // u8g2.setFont(u8g2_font_micro_tr);
+  oled.invertText(false);
   for(int i=0;i<4;i++){
-    u8g2.drawStr(msgCoords[i+4]+1,62,messages[i+4]);
+    
+    oled.setCursorXY(msgCoords[i+4]+1,62);
+    oled.print(messages[i+4]);
+    //u8g2.drawStr(msgCoords[i+4]+1,62,messages[i+4]);
   }
 }
 
 void gfxModeInit(){
-  u8g2.setDrawColor(0);
-  u8g2.drawBox(0,45,128,9);
-  u8g2.setDrawColor(1);
-  u8g2.drawRFrame(0,45,128,9,2);
-  u8g2.setFont(u8g2_font_micro_tr);
-  u8g2.drawStr(5,52,"GM Mode   GS Mode");
-  u8g2.drawStr(84,52,"MT-32 Mode");
-  u8g2.drawStr(3,42,"1 2 3 4 5 6 7 8 9 A B C D E F G");
-  u8g2.drawRFrame(0,11,128,33,2);
+  
+  // u8g2.setDrawColor(0);
+  // u8g2.drawBox(0,45,128,9);
+  // u8g2.setDrawColor(1);
+  // u8g2.drawRFrame(0,45,128,9,2);
+    oled.clear(0,45,128,9);
+
+    oled.roundRect(0,45,128,9,0);
+    oled.roundRect(0,11,128,33,0);
+    oled.setCursorXY(5,52);
+    oled.invertText(false);
+    oled.print("GM Mode   GS Mode");
+    oled.setCursorXY(84,52);
+    oled.print("MT-32 Mode");
+
+  // u8g2.setFont(u8g2_font_micro_tr);
+  // u8g2.drawStr(5,52,"GM Mode   GS Mode");
+  // u8g2.drawStr(84,52,"MT-32 Mode");
+  // u8g2.drawStr(3,42,"1 2 3 4 5 6 7 8 9 A B C D E F G");
+  // u8g2.drawRFrame(0,11,128,33,2);
 }
 
 void gfxMessage(char *message){
   //u8g2.clearBuffer();
-  u8g2.setDrawColor(0);
-  u8g2.drawBox(0,0,128,10);
-  u8g2.setDrawColor(1);
-  u8g2.setFont(u8g2_font_t0_11b_tf);
-  u8g2.drawStr(0,8,message);
+  // u8g2.setDrawColor(0);
+  
+  // u8g2.drawBox(0,0,128,10);
+  // u8g2.setDrawColor(1);
+  // u8g2.setFont(u8g2_font_t0_11b_tf);
+  // u8g2.drawStr(0,8,message);
 }
 
 void gfxSetGraph(int channel, int vel){ //sets height of channel bar based on vel
   if(gfxEn){
     int cOffset=3+((channel)*8);
-    u8g2.setDrawColor(0);
-    u8g2.drawBox(cOffset-1,12,5,22);
-    u8g2.setDrawColor(1);
-    u8g2.drawBox(cOffset-1,34-vel,5,vel);
+    oled.clear(cOffset-1,12,5,22);
+    oled.rect(cOffset-1,34-vel,5,vel);
+    // u8g2.setDrawColor(0);
+    // u8g2.drawBox(cOffset-1,12,5,22);
+    // u8g2.setDrawColor(1);
+    // u8g2.drawBox(cOffset-1,34-vel,5,vel);
   }
 }
 
+void drawbox(int x0, int y0, int x1, int y1, int state) {
+    if (state == 0){
+      oled.clear(x0,y0,x1,y1);
+    } else {
+      oled.rect(x0,y0,x1,y1);
+    }
+}
 void gfxSetChannel(int channel, int state){ //highlights or not channel number
   if(gfxEn){
-    u8g2.setDrawColor(0);
+    // u8g2.setDrawColor(0);
     int cOffset=3+((channel)*8);
-    u8g2.setDrawColor(state);
-    u8g2.drawBox(cOffset-1,36,5,7);
-    u8g2.setDrawColor(!state);
+    drawbox(cOffset-1,36,5,7,state);
     const char strChannel[]="123456789ABCDEFG";
     char p[]="";
     strncpy(p,&strChannel[channel],1);
-    u8g2.setFont(u8g2_font_micro_tr);
-    u8g2.drawStr(cOffset,42,p);
+    oled.invertText(!state);
+    oled.setCursorXY(cOffset,42);
+    oled.print(p);
   }
 }
 
 void gfxSetMap(int map){
   gfxMapInit();
-  u8g2.setDrawColor(1);
-  u8g2.drawBox(msgCoords[map+4],56,strlen(messages[map+4])*4+1,7);
-  u8g2.setDrawColor(0);
-  u8g2.setFont(u8g2_font_micro_tr);
-  u8g2.drawStr(msgCoords[map+4]+1,62,messages[map+4]);
+  
+  
+  
+  oled.rect(msgCoords[map+4],56,strlen(messages[map+4])*4+1,7);
+  oled.invertText(true);
+  oled.setCursorXY(msgCoords[map+4]+1,62);
+  oled.print(messages[map+4]);
+//  u8g2.drawBox(msgCoords[map+4],56,strlen(messages[map+4])*4+1,7);
+  //u8g2.setDrawColor(0);
+  //u8g2.setFont(u8g2_font_micro_tr);
+  //u8g2.drawStr(msgCoords[map+4]+1,62,messages[map+4]);
 }
 
 void gfxSetMode(int mode){
   gfxModeInit();
-  u8g2.setDrawColor(1);
-  u8g2.drawBox(msgCoords[mode+1],46,strlen(messages[mode+1])*4+1,7);
-  u8g2.setDrawColor(0);
-  u8g2.setFont(u8g2_font_micro_tr);
-  u8g2.drawStr(msgCoords[mode+1]+1,52,messages[mode+1]);
+    oled.rect(msgCoords[mode+1],46,strlen(messages[mode+1])*4+1,7);
+  oled.invertText(true);
+  oled.setCursorXY(msgCoords[mode+1]+1,52);
+  oled.print(messages[mode+1]);
+
+  // u8g2.setDrawColor(1);
+  // u8g2.drawBox(msgCoords[mode+1],46,strlen(messages[mode+1])*4+1,7);
+  // u8g2.setDrawColor(0);
+  // u8g2.setFont(u8g2_font_micro_tr);
+  // u8g2.drawStr(msgCoords[mode+1]+1,52,messages[mode+1]);
 }
 
 void setD70Map(int map){
@@ -308,77 +335,4 @@ void reSendPCs(){
   for(int k=0;k<16;k++){
     MIDI.sendProgramChange(pcBuffer[k-1],k);
   } 
-}
-
-
-
-void button_GM(){
-  if (lastButton == true) return;
-  lastButton = true;
-  lastTime = millis();
-  gfxSetMode(0);
-  exitMT32Mode();
-  gmReset();
-}
-void button_GS(){
-  if (lastButton == true) return;
-  lastButton = true;
-  lastTime = millis();
-  gfxSetMode(1);
-  exitMT32Mode();
-  gsReset();
-}
-void button_MT32(){
-  if (lastButton == true) return;
-  lastButton = true;
-  lastTime = millis();
-  gsReset();
-  gfxSetMode(2);
-  gfxSetMap(4);
-  mt32Mode=1;
-  setD70Map(4);
-}
-void button_SC55(){
-  if (lastButton == true) return;
-  lastButton = true;
-  lastTime = millis();
-  if(!(mt32Mode==1)){
-    gfxSetMap(0);
-    setD70Map(1);
-  }
-}
-void button_SC88(){
-  if (lastButton == true) return;
-  lastButton = true;
-  lastTime = millis();
-  if(!(mt32Mode==1)){
-    gfxSetMap(1);
-    setD70Map(2);
-  }
-}
-void button_SC88Pro(){
-  if (lastButton == true) return;
-  lastButton = true;
-  lastTime = millis();
-  if(!(mt32Mode==1)){
-    gfxSetMap(2);
-    setD70Map(3);
-  }
-}
-void button_SC8820(){
-  if (lastButton == true) return;
-  lastButton = true;
-  lastTime = millis();
-  if(mt32Mode==0){
-    gfxSetMap(3);
-  }
-  else if((mt32Mode==1 && lastMap==4) || (mt32Mode==2 && lastMap<4)){         //if in CM-64 mode already, change to 8820 mode
-    gfxSetMap(3);             //set 8820 gfx map
-    mt32Mode=2;
-  }
-  else if(mt32Mode==2){       //if in MT32->8820 mode already -> change to CM-64 mode
-    gfxSetMap(4);
-    mt32Mode=1;
-  }
-  setD70Map(4); 
 }
