@@ -24,8 +24,9 @@ boolean gfxEn=true;
 
 MIDI_CREATE_INSTANCE(HardwareSerial, Serial1, MIDI);
 //d70 buddy U8G2_SSD1306_128X64_NONAME_F_4W_HW_SPI u8g2(U8G2_R0, 31, 30, 29);
-U8G2_SSD1306_128X64_NONAME_F_4W_HW_SPI u8g2(U8G2_R0, 9,8,7);
-//U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0);
+//U8G2_SSD1306_128X64_NONAME_F_4W_HW_SPI u8g2(U8G2_R0, 9,8,7);
+//U8G2_SSD1309_128X64_NONAME0_F_4W_SW_SPI u8g2(U8G2_R0, /* clock=*/ 13, /* data=*/ 11, /* cs=*/ 10, /* dc=*/ 9, /* reset=*/ 8); 
+U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0);
 
 const int bSC55=47;
 const int bSC88=46;
@@ -48,8 +49,9 @@ void setup() {
   lastTime=millis();
   gfxTime=millis();
   Serial.begin(9600);
-  u8g2.setBusClock(8000000);
+  u8g2.setBusClock(800000);
   u8g2.begin();
+  u8g2.sendF("c", 0xa0);
   u8g2.clearBuffer();
   gfxInit();
   gfxMessage(messages[0]);
