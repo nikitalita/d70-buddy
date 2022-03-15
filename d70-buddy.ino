@@ -28,13 +28,22 @@ MIDI_CREATE_INSTANCE(HardwareSerial, Serial1, MIDI);
 //U8G2_SSD1309_128X64_NONAME0_F_4W_SW_SPI u8g2(U8G2_R0, /* clock=*/ 13, /* data=*/ 11, /* cs=*/ 10, /* dc=*/ 9, /* reset=*/ 8); 
 U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0);
 
-const int bSC55=47;
-const int bSC88=46;
-const int bSC88p=45;
-const int b8820=44;
-const int bGM=43;
-const int bGS=42;
-const int bMT32=41;
+const int bSC55=53;
+const int bSC88=51;
+const int bSC88p=49;
+const int b8820=47;
+const int bGM=52;
+const int bGS=50;
+const int bMT32=48;
+
+const int ledSC55=45;
+const int ledSC88=43;
+const int ledSC88p=41;
+const int led8820=39;
+const int ledGM=46;
+const int ledGS=44;
+const int ledMT32=42;
+
 void setup() {
   pinMode(bGM, INPUT_PULLUP);
   pinMode(bGS, INPUT_PULLUP);
@@ -43,6 +52,13 @@ void setup() {
   pinMode(bSC88, INPUT_PULLUP);
   pinMode(bSC88p, INPUT_PULLUP);
   pinMode(b8820, INPUT_PULLUP);
+  pinMode(ledSC55, OUTPUT);
+  pinMode(ledSC88, OUTPUT);
+  pinMode(ledSC88p, OUTPUT);
+  pinMode(led8820, OUTPUT);
+  pinMode(ledGM, OUTPUT);
+  pinMode(ledGS, OUTPUT);
+  pinMode(ledMT32, OUTPUT);
   MIDI.begin(MIDI_CHANNEL_OMNI);
   MIDI.turnThruOn();
   MIDI.setThruFilterMode(midi::Thru::Full);
@@ -89,7 +105,7 @@ void loop() {
     
   }
   
-  for(int i=41;i<48;i++){
+  for(int i=47;i<54;i++){
     if(!digitalRead(i) && lastButton==false){
       lastButton=true;
       lastTime=millis();
@@ -111,6 +127,9 @@ void loop() {
             gfxSetMap(4);
             mt32Mode=1;
             setD70Map(4);
+            digitalWrite(ledGM,LOW);
+            digitalWrite(ledGS,LOW);
+            digitalWrite(ledMT32,HIGH);
             break;
           case bSC55: 
             if(!(mt32Mode==1)){
@@ -247,6 +266,11 @@ void gfxSetMode(int mode){
   u8g2.drawStr(msgCoords[mode+1]+1,52,messages[mode+1]);
 }
 
+//SC-55= 1
+//SC-88= 2
+//SC-88Pro = 3
+//SC-8820 = 4
+
 void setD70Map(int map){
     for(int j=1;j<17;j++){
       sysEx[5]=0x40+j;
@@ -269,7 +293,33 @@ void setD70Map(int map){
         MIDI.sendProgramChange(pcBuffer[k-1],k);
       }
     }
-    lastMap=map;    
+    lastMap=map;
+    switch (map){
+      case 1:
+        digitalWrite(ledSC55,HIGH);
+        digitalWrite(ledSC88,LOW);
+        digitalWrite(ledSC88p,LOW);
+        digitalWrite(led8820,LOW);
+        break;
+      case 2:
+        digitalWrite(ledSC55,LOW);
+        digitalWrite(ledSC88,HIGH);
+        digitalWrite(ledSC88p,LOW);
+        digitalWrite(led8820,LOW);
+        break;
+      case 3:
+        digitalWrite(ledSC55,LOW);
+        digitalWrite(ledSC88,LOW);
+        digitalWrite(ledSC88p,HIGH);
+        digitalWrite(led8820,LOW);
+        break;
+      case 4:
+        digitalWrite(ledSC55,LOW);
+        digitalWrite(ledSC88,LOW);
+        digitalWrite(ledSC88p,LOW);
+        digitalWrite(led8820,HIGH);
+        break;
+    }
 }
 
 void exitMT32Mode(){
@@ -282,11 +332,17 @@ void exitMT32Mode(){
 }
 
 void gsReset() {
+  digitalWrite(ledGM,LOW);
+  digitalWrite(ledGS,HIGH);
+  digitalWrite(ledMT32,LOW);
   MIDI.sendSysEx(9,gsResetSysEx,false);
   reSendPCs();
 }
 
 void gmReset(){
+  digitalWrite(ledGM,HIGH);
+  digitalWrite(ledGS,LOW);
+  digitalWrite(ledMT32,LOW);
   MIDI.sendSysEx(4,gmResetSysEx,false);
   reSendPCs();
 }

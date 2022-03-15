@@ -1,3 +1,4 @@
 (sym_lib_table
   (lib (name "503480-1400")(type "KiCad")(uri "${KIPRJMOD}/lib/503480-1400.kicad_sym")(options "")(descr ""))
+  (lib (name "serial-logger-prototype-cache")(type "KiCad")(uri "C:/workspace/uartwise/pcb/serial-logger-prototype-cache.kicad_sym")(options "")(descr ""))
 )
