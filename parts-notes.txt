@@ -1,0 +1,26 @@
+Midi Din port:
+https://www.digikey.it/en/products/detail/cui-devices/SD-50BV/500844
+
+H11L1
+https://jlcpcb.com/parts/componentSearch?isSearch=true&searchTxt=H11L1
+
+https://github.com/dwhinham/mt32-pi/wiki/GPIO-MIDI-interface
+https://www.midi.org/specifications-old/item/midi-din-electrical-specification
+
+AC-DC Converter:
+https://www.alibaba.com/product-detail/AC-DC-Converter-Power-Module-110V_60701798353.html?spm=a2700.galleryofferlist.normal_offer.d_title.7f457a95dc0z0t
+another:
+https://www.alibaba.com/product-detail/New-Hi-Link-ac-dc-5V_1600301612438.html?spm=a2700.galleryofferlist.normal_offer.d_title.3e5523cfvf8Iyv
+
+https://www.alibaba.com/product-detail/Mini-AC-DC-110V-120V-220V_1600443509480.html?spm=a2700.galleryofferlist.normal_offer.d_title.29e53697b5mlVQ
+
+https://www.alibaba.com/product-detail/AIPULNION-AC-DC-power-module-Power_62592283478.html?spm=a2700.wholesale.0.0.28a92931pfv1zj
+
+https://www.aliexpress.com/item/4000689975535.html?algo_pvid=4025df4d-5cab-4210-871b-4d0efa3447eb&algo_exp_id=4025df4d-5cab-4210-871b-4d0efa3447eb-38&pdp_ext_f=%7B%22sku_id%22%3A%2210000006038664360%22%7D&pdp_pi=-1%3B1.85%3B-1%3B-1%40salePrice%3BUSD%3Bsearch-mainSearch
+
+https://www.oneyac.net/product/26671511.html
+
+
+C8 AC port  AC-13 
+https://www.aliexpress.com/item/1005002516320900.html?algo_pvid=3916226e-89e0-473a-81ef-a92972393b3e&aem_p4p_detail=202203202042597135452835858800025072322&algo_exp_id=3916226e-89e0-473a-81ef-a92972393b3e-49&pdp_ext_f=%7B%22sku_id%22%3A%2212000020962197407%22%7D&pdp_pi=-1%3B1.13%3B-1%3B-1%40salePrice%3BUSD%3Bsearch-mainSearch
+

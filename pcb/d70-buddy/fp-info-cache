@@ -1,4 +1,4 @@
-19800793652906808
+19809031779423998
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -83775,6 +83775,34 @@ valve
 0
 9
 8
+Various
+AFC24-S14FIA-00
+
+
+0
+16
+16
+Various
+MOLEX_503480-1400
+
+
+0
+16
+16
+Various
+SW_PUSH_LED_6mm_H7.3mm
+tactile push button, 6x6mm e.g. PHAP33xx series, height=7.3mm
+tact sw push 6mm
+0
+6
+4
+Various
+TO127P584H533-3
+
+
+0
+3
+3
 Varistor
 RV_Disc_D7mm_W3.4mm_P5mm
 Varistor, diameter 7mm, width 3.4mm, pitch 5mm
@@ -84475,6 +84503,13 @@ varistor SIOV
 0
 2
 2
+lib
+ELW2106AA
+Adafruit SSD1306 OLED 1.3 inch 128x64 I2C & SPI https://learn.adafruit.com/monochrome-oled-breakouts/downloads
+Adafruit SSD1306 OLED 1.3 inch 128x64 I2C & SPI 
+0
+7
+7
 lib
 MOLEX_503480-1400
 

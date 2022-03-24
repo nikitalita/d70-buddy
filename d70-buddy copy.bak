@@ -2,6 +2,12 @@
 #include <U8x8lib.h>
 #include <MIDI.h>
 #include <SPI.h>
+//#include <stdio.h>
+#ifdef FARTS
+#include "RP2040Support.h"
+#endif
+#include "pico/stdlib.h"
+//#include <pico/multicore.h>
 
 byte pcBuffer[16];
 byte sysEx[9]={0x41,0x10,0x42,0x12,0x40}; //excludes boundaries. array space for channel, upper byte, lower byte, checksum.
@@ -11,7 +17,6 @@ byte mt32GM[128]={0x0,0x1,0x2,0x4,0x5,0x4,0x5,0x3,0x10,0x11,0x12,0x12,0x13,0x13,
 //in SC-8820 mode, CC00 127 = MT32 map.
 
 int gfxGraph[16];
-bool channelActive[16];
 int lastMap;
 double lastTime;
 double gfxTime;
@@ -22,26 +27,11 @@ char sysMsg[20]="";
 int mt32Mode=0; //0 is off, 1 is 8820 in CM64 mode, 2 is mapped to any map via mt32GM.
 boolean logEn=false;
 boolean gfxEn=true;
-String message;
-#define DEBUG 1
-#ifdef DEBUG
-#define DEBUG_PRINT(x) Serial.print(x)
-#define DEBUG_PRINTF(x,y) Serial.print(x); Serial.print(y); Serial.println();
-#else
-#define DEBUG_PRINT(x)
-#define DEBUG_PRINTF(x,y)
-#endif
-
 MIDI_CREATE_INSTANCE(HardwareSerial, Serial1, MIDI);
-
-
 //d70 buddy U8G2_SSD1306_128X64_NONAME_F_4W_HW_SPI u8g2(U8G2_R0, 31, 30, 29);
-//U8G2_SSD1306_128X64_NONAME_F_4W_HW_SPI u8g2(U8G2_R0, 10,9,8);
-U8G2_SSD1309_128X64_NONAME0_F_4W_HW_SPI u8g2(U8G2_R0, /* cs=*/ 17, /* dc=*/ 20, /* reset=*/ 21); 
-
+U8G2_SSD1306_128X64_NONAME_F_4W_HW_SPI u8g2(U8G2_R0, 9,8,7);
 //U8G2_SSD1309_128X64_NONAME0_F_4W_SW_SPI u8g2(U8G2_R0, /* clock=*/ 13, /* data=*/ 11, /* cs=*/ 10, /* dc=*/ 9, /* reset=*/ 8); 
 //U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0);
-
 
 const int bSC55=53;
 const int bSC88=51;
@@ -59,54 +49,53 @@ const int ledGM=46;
 const int ledGS=44;
 const int ledMT32=42;
 
-
 void setup() {
-  // pinMode(bGM, INPUT_PULLUP);
-  // pinMode(bGS, INPUT_PULLUP);
-  // pinMode(bMT32, INPUT_PULLUP); 
-  // pinMode(bSC55, INPUT_PULLUP);
-  // pinMode(bSC88, INPUT_PULLUP);
-  // pinMode(bSC88p, INPUT_PULLUP);
-  // pinMode(b8820, INPUT_PULLUP);
-  // pinMode(ledSC55, OUTPUT);
-  // pinMode(ledSC88, OUTPUT);
-  // pinMode(ledSC88p, OUTPUT);
-  // pinMode(led8820, OUTPUT);
-  // pinMode(ledGM, OUTPUT);
-  // pinMode(ledGS, OUTPUT);
-  // pinMode(ledMT32, OUTPUT);
+ // rp2040.idleOtherCore();
+  pinMode(bGM, INPUT_PULLUP);
+  pinMode(bGS, INPUT_PULLUP);
+  pinMode(bMT32, INPUT_PULLUP); 
+  pinMode(bSC55, INPUT_PULLUP);
+  pinMode(bSC88, INPUT_PULLUP);
+  pinMode(bSC88p, INPUT_PULLUP);
+  pinMode(b8820, INPUT_PULLUP);
+  pinMode(ledSC55, OUTPUT);
+  pinMode(ledSC88, OUTPUT);
+  pinMode(ledSC88p, OUTPUT);
+  pinMode(led8820, OUTPUT);
+  pinMode(ledGM, OUTPUT);
+  pinMode(ledGS, OUTPUT);
+  pinMode(ledMT32, OUTPUT);
   MIDI.begin(MIDI_CHANNEL_OMNI);
   MIDI.turnThruOn();
   MIDI.setThruFilterMode(midi::Thru::Full);
   lastTime=millis();
   gfxTime=millis();
-  //unsigned int thing;
-  //rp2040.fifo.pop_nb(&thing);
-  #ifdef DEBUG
-  Serial.begin(500000l);
-  #endif
-  gsReset();
-  setD70Map(4);
-}
-
-void setup1() {
-  //rp2040.idleOtherCore();
-  startDisplay();
+  //Serial.begin(9600);
+  u8g2.setBusClock(8000000);
+  u8g2.begin();
+  u8g2.sendF("c", 0xa0);
+  u8g2.clearBuffer();
   gfxInit();
   gfxMessage(messages[0]);
   gfxSetMode(0);
+  gsReset();
+  setD70Map(4);
   gfxSetMap(3);
-  //rp2040.resumeOtherCore();
+ // rp2040.resumeOtherCore();
 }
+// void setup1()
+// {
 
-void startDisplay(){
-  u8g2.setBusClock(8000000);
-  u8g2.begin();
-  //u8g2.sendF("c", 0xa0);
-  u8g2.clearBuffer();
-}
 
-void readMidi(){
+// }
+// void loop1(){
+//     if(millis()-gfxTime>50){    //update screen each 50ms
+//       u8g2.updateDisplay();
+//       gfxTime=millis();
+//     }
+// }
+void loop() {
+
   if (MIDI.read()){
     if (MIDI.getType()==midi::ProgramChange){
       pcBuffer[MIDI.getChannel()-1]=MIDI.getData1();    
@@ -114,25 +103,25 @@ void readMidi(){
         MIDI.sendProgramChange(mt32GM[pcBuffer[MIDI.getChannel()-1]], MIDI.getChannel()); //send similar sounding chanel
       }
     }
+    
     if (MIDI.getType()==midi::SystemExclusive && MIDI.getSysExArray()[5]==0x20 && MIDI.getSysExArray()[6]==0x00 && MIDI.getSysExArray()[7]==0x00){
       for(int i=8;i<27;i++){
         sysMsg[i-8]=MIDI.getSysExArray()[i];
       }
-      message = sysMsg;
-    } else {
-      message = messages[0];
+      gfxMessage(sysMsg); //sysex message
     }
-    if (MIDI.getType()==midi::NoteOn) {
-        gfxGraph[MIDI.getChannel()-1]=MIDI.getData2()/6 + 1;
-        channelActive[MIDI.getChannel()-1] = true;
+    
+    if (MIDI.getType()==midi::NoteOn){
+        gfxGraph[MIDI.getChannel()-1]=MIDI.getData2()/6;
+        gfxSetChannel(MIDI.getChannel()-1,1);
+        gfxSetGraph(MIDI.getChannel()-1,gfxGraph[MIDI.getChannel()-1]);
     }
     if (MIDI.getType()==midi::NoteOff){
-        channelActive[MIDI.getChannel()-1] = false;
+        gfxSetChannel(MIDI.getChannel()-1,0);
     }
+    
   }
-}
-
-void pollButtons() {
+  
   for(int i=47;i<54;i++){
     if(!digitalRead(i) && lastButton==false){
       lastButton=true;
@@ -188,54 +177,35 @@ void pollButtons() {
             else if(mt32Mode==2){       //if in MT32->8820 mode already -> change to CM-64 mode
               gfxSetMap(4);
               mt32Mode=1;
-            }
+            }      
             setD70Map(4); 
             break;
         }
       }
     }
   }
-}
 
-void loop() {
-  readMidi();
-  pollButtons();
   if(millis()-lastTime>1000){  //allows new button presses after 1 sec
       lastButton=false;
       lastTime=millis();
   }
-}    
 
-void loop1(){
-  if(gfxEn){
-    if(millis()-gfxTime>50){    //update screen each 50ms
-      double gfxloopdur = millis();
-      gfxMessage(message.c_str()); //sysex message
-      for(int i=0;i<16;i++){
-        if (channelActive[i]){
-          gfxSetChannel(i, 1);
-        } else {
-          gfxSetChannel(i, 0);
-        }
-        if(gfxGraph[i]){
-          gfxGraph[i]=gfxGraph[i]-1;
-          gfxSetGraph(i,--gfxGraph[i]);
-        }
+  if(millis()-gfxTime>50){    //update screen each 50ms
+    for(int i=0;i<16;i++){
+      if(gfxGraph[i]){
+        gfxGraph[i]=gfxGraph[i]-1;
+        gfxSetGraph(i,gfxGraph[i]);
       }
-      double sendbufdur = millis();
-      DEBUG_PRINTF("gfxSetGraph LOOP duration: ", sendbufdur - gfxloopdur);
-      u8g2.sendBuffer();
-      gfxTime=millis();
-      DEBUG_PRINTF("u8g2.sendBuffer duration: ", gfxTime - sendbufdur);
-    } 
-  }
-}
+    }
+    //u8g2.sendBuffer();
+    gfxTime=millis();
+  } 
+}    
 
 void gfxInit(){
   u8g2.clearBuffer();
   gfxMapInit();
   gfxModeInit();
-  u8g2.sendBuffer();
 }
 
 void gfxMapInit(){
@@ -261,7 +231,7 @@ void gfxModeInit(){
   u8g2.drawRFrame(0,11,128,33,2);
 }
 
-void gfxMessage(const char *message){
+void gfxMessage(char *message){
   //u8g2.clearBuffer();
   u8g2.setDrawColor(0);
   u8g2.drawBox(0,0,128,10);
@@ -271,20 +241,17 @@ void gfxMessage(const char *message){
 }
 
 void gfxSetGraph(int channel, int vel){ //sets height of channel bar based on vel
-  if(gfxEn) {
-    double gfxloopdur = millis();
+  if(gfxEn){
     int cOffset=3+((channel)*8);
     u8g2.setDrawColor(0);
     u8g2.drawBox(cOffset-1,12,5,22);
     u8g2.setDrawColor(1);
     u8g2.drawBox(cOffset-1,34-vel,5,vel);
-    DEBUG_PRINTF("gfxSetGraph duration: ", millis() - gfxloopdur);
   }
 }
 
 void gfxSetChannel(int channel, int state){ //highlights or not channel number
   if(gfxEn){
-    double gfxloopdur = millis();
     u8g2.setDrawColor(0);
     int cOffset=3+((channel)*8);
     u8g2.setDrawColor(state);
@@ -295,7 +262,6 @@ void gfxSetChannel(int channel, int state){ //highlights or not channel number
     strncpy(p,&strChannel[channel],1);
     u8g2.setFont(u8g2_font_micro_tr);
     u8g2.drawStr(cOffset,42,p);
-    DEBUG_PRINTF("gfxSetChannel duration: ", millis() - gfxloopdur);
   }
 }
 
