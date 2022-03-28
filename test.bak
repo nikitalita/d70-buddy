@@ -1,13 +1,131 @@
 #include <MIDI.h>
 
-MIDI_CREATE_INSTANCE(HardwareSerial, Serial1, MIDI);
+
+struct settings : midi::DefaultSettings{
+  static const bool Use1ByteParsing = false;
+  static const bool UseRunningStatus = true;
+};
+
+MIDI_CREATE_CUSTOM_INSTANCE(HardwareSerial, Serial1, MIDI, settings);
 
 void setup() {
+  Serial.begin(2000000);
   MIDI.begin(MIDI_CHANNEL_OMNI);
   MIDI.turnThruOn();
   MIDI.setThruFilterMode(midi::Thru::Full);
 }
+void PrintArray(const uint8_t *data_arr, uint8_t data_length)
+{
+    while (data_length--)
+    {
+        Serial.print(*data_arr, HEX);
+        Serial.print(" ");
+        *data_arr++;
+    }
+    Serial.println();
+}
+const char * getTypeName(midi::MidiType type){
+  if (type == midi::NoteOff){
+    return "NoteOff";
+  }
+  if (type == midi::NoteOn){
+    return "NoteOn";
+  }
+    if (type == midi::AfterTouchPoly){
+    return "AfterTouchPoly";
+  }
+    if (type == midi::NoteOn){
+    return "NoteOn";
+  }
+    if (type == midi::NoteOn){
+    return "NoteOn";
+  }
+    if (type == midi::NoteOn){
+    return "NoteOn";
+  }
+  switch (type){
+    case midi::InvalidType:
+      return "InvalidType";
+    case midi::NoteOff:
+      return "NoteOff";
+    case midi::NoteOn:
+      return "NoteOn";
+    case midi::AfterTouchPoly:
+      return "AfterTouchPoly";
+    case midi::ControlChange:
+      return "ControlChange";
+    case midi::ProgramChange:
+      return "ProgramChange";
+    case midi::AfterTouchChannel:
+      return "AfterTouchChannel";
+    case midi::PitchBend:
+      return "PitchBend";
+    case midi::SystemExclusive:
+      return "SystemExclusive";
 
+    case midi::TimeCodeQuarterFrame:
+      return "TimeCodeQuarterFrame";
+
+    case midi::SongPosition:
+      return "SongPosition";
+
+    case midi::SongSelect:
+      return "SongSelect";
+
+    case midi::Undefined_F4:
+      return "Undefined_F4";
+
+    case midi::Undefined_F5:
+      return "Undefined_F5";
+
+    case midi::TuneRequest:
+      return "TuneRequest";
+
+    case midi::SystemExclusiveEnd:
+      return "SystemExclusiveEnd";
+
+    case midi::Clock:
+      return "Clock";
+
+    case midi::Tick:
+      return "Tick";
+
+    case midi::Start:
+      return "Start";
+
+    case midi::Continue:
+      return "Continue";
+
+    case midi::Stop:
+      return "Stop";
+
+    case midi::Undefined_FD:
+      return "Undefined_FD";
+
+    case midi::ActiveSensing:
+      return "ActiveSensing";
+
+    case midi::SystemReset:
+      return "SystemReset";
+  }
+  return "";
+
+}
 void loop() {
-    MIDI.read();
+  if (MIDI.read()){
+    //digitalWrite(LED_BUILTIN, HIGH);
+    if (MIDI.getType() == midi::SystemExclusive){
+      Serial.print("MIDI Sysex: ");
+      PrintArray(MIDI.getSysExArray(), MIDI.getSysExArrayLength());
+    } else {
+      Serial.printf("Channel %d: %s - %02x %02x", MIDI.getChannel(), getTypeName(MIDI.getType()), MIDI.getData1(), MIDI.getData2());
+      if (MIDI.checkRunningStatus()){
+        Serial.print(" - Running status!!\n");
+      } else {
+        Serial.println();
+      }
+    }
+  } else {
+    //digitalWrite(LED_BUILTIN, LOW);
+  }
 }
