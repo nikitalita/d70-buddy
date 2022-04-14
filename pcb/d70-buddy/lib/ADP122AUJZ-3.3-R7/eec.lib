@@ -1,0 +1,46 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# Analog Devices ADP122AUJZ-3.3-R7
+#
+DEF ADP122AUJZ-3.3-R7 U 0 40 Y Y 1 L N
+F0 "U" 0 200 50 H V L CNN 
+F1 "ADP122AUJZ-3.3-R7" 0 300 50 H V L CNN 
+F2 "Analog_Devices-ADP122AUJZ-3.3-R7-*" 0 400 50 H I L CNN 
+F3 "http://www.analog.com/static/imported-files/data_sheets/ADP122_123.pdf" 0 500 50 H I L CNN 
+F4 "MO-193-AB" 0 600 50 H I L CNN "Code  JEDEC"
+F5 "Manufacturer URL" 0 700 50 H I L CNN "Component Link 1 Description"
+F6 "http://www.analog.com/en/index.html" 0 800 50 H I L CNN "Component Link 1 URL"
+F7 "Package Specification" 0 900 50 H I L CNN "Component Link 3 Description"
+F8 "http:/www.analog.com/static/imported-files/packages/PKG_PDF/TSOT(UJ)/UJ_5.pdf" 0 1000 50 H I L CNN "Component Link 3 URL"
+F9 "URL Link1" 0 1100 50 H I L CNN "Component Link 4 Description"
+F10 "Product URL:http://www.analog.com/en/ADP122/productSearch.html" 0 1200 50 H I L CNN "Component Link 4 URL"
+F11 "Rev. E" 0 1300 50 H I L CNN "Datasheet Version"
+F12 "300mA" 0 1400 50 H I L CNN "Iout max"
+F13 "Surface Mount" 0 1500 50 H I L CNN "Mounting Technology"
+F14 "5-Pin Thin Small Outline Transistor Package, Body 2.9 x 1.6 mm, Pitch 0.95 mm" 0 1600 50 H I L CNN "Package Description"
+F15 "100708-A, 10/2008" 0 1700 50 H I L CNN "Package Version"
+F16 "Reel" 0 1800 50 H I L CNN "Packing"
+F17 "3.3" 0 1900 50 H I L CNN "Preset Vout Values V"
+F18 "45uA" 0 2000 50 H I L CNN "Supply Current IGND  Small Load"
+F19 "5.5" 0 2100 50 H I L CNN "Vin max V"
+F20 "2.3" 0 2200 50 H I L CNN "Vin min V"
+F21 "IC" 0 2300 50 H I L CNN "category"
+F22 "3763888" 0 2400 50 H I L CNN "ciiva ids"
+F23 "a040029753d0f851" 0 2500 50 H I L CNN "library id"
+F24 "Analog Devices" 0 2600 50 H I L CNN "manufacturer"
+F25 "UJ-5" 0 2700 50 H I L CNN "package"
+F26 "1391097455" 0 2800 50 H I L CNN "release date"
+F27 "F23ED518-8B40-49B9-A900-DDA29CC59566" 0 2900 50 H I L CNN "vault revision"
+F28 "yes" 0 3000 50 H I L CNN "imported"
+DRAW
+X VIN 1 100 0 100 R 40 40 1 1 W 
+X GND 2 500 -500 100 U 40 40 1 1 W 
+X EN 3 100 -200 100 R 40 40 1 1 I 
+X NC 4 900 -200 100 L 40 40 1 1 P 
+X VOUT 5 900 0 100 L 40 40 1 1 W 
+S 200 100 800 -400 1 1 0 f
+ENDDRAW
+ENDDEF
+#
+# End Library

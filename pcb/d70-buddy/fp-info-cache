@@ -1,4 +1,4 @@
-19809031779423998
+20006142719802624
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -59345,6 +59345,20 @@ net tie
 0
 4
 4
+OLED SSD1312 KiCAD
+OLED_SSD1312_I2C_0.96
+
+
+0
+4
+4
+OLED SSD1312 KiCAD
+OLED_SSD1312_I2C_0.96_No_Mounting_Holes
+
+
+0
+4
+4
 OptoDevice
 ADNS-9800
 Laser Gaming Sensor ADNS-9800
@@ -59464,6 +59478,13 @@ Hamamatsu SiPM
 0
 2
 2
+OptoDevice
+Kingbright_KPS-3227
+3.2mmx2.7mm, light sensor, https://www.kingbright.com/attachments/file/psearch/000/00/00/KPS-3227SP1C(Ver.16).pdf
+KPS-3227 Ambient Light Photo Sensor
+0
+4
+4
 OptoDevice
 Kingbright_KPS-5130
 http://www.kingbright.com/attachments/file/psearch/000/00/00/KPS-5130PD7C(Ver.14).pdf
@@ -83775,34 +83796,6 @@ valve
 0
 9
 8
-Various
-AFC24-S14FIA-00
-
-
-0
-16
-16
-Various
-MOLEX_503480-1400
-
-
-0
-16
-16
-Various
-SW_PUSH_LED_6mm_H7.3mm
-tactile push button, 6x6mm e.g. PHAP33xx series, height=7.3mm
-tact sw push 6mm
-0
-6
-4
-Various
-TO127P584H533-3
-
-
-0
-3
-3
 Varistor
 RV_Disc_D7mm_W3.4mm_P5mm
 Varistor, diameter 7mm, width 3.4mm, pitch 5mm
@@ -84503,6 +84496,762 @@ varistor SIOV
 0
 2
 2
+kicad-footprints
+4P4C_narrow
+
+4P4C connector RJ10
+0
+4
+4
+kicad-footprints
+5X6_MOSFET
+https://www.onsemi.com/pub/Collateral/AND9137-D.PDF
+PQFN DFN SON LFPAK SOT669 Power-SO8 5x6 HSOP8
+0
+22
+3
+kicad-footprints
+BLE_MODULE_RAYTAC_MDBT42
+
+
+0
+41
+41
+kicad-footprints
+Bourns_SRN6045TA
+
+Inductors Bourns / Tayo Yuden 6045
+0
+2
+2
+kicad-footprints
+Bourns_SRN8040TA
+
+Inductors Bourns / Tayo Yuden 6045
+0
+2
+2
+kicad-footprints
+Box_Header_2x05x2.54mm_Straight
+http://www.farnell.com/datasheets/1520732.pdf
+connector multicomp MC9A MC9A12
+0
+10
+10
+kicad-footprints
+CP_Radial_L31.5mm_D16.0mm_P7.50mm_horizontal
+CP, Radial series, Radial, pin pitch=7.50mm, , diameter=16mm, Electrolytic Capacitor
+CP Radial series Radial pin pitch 7.50mm  diameter 16mm Electrolytic Capacitor
+0
+2
+2
+kicad-footprints
+C_0402_1005
+Capacitor SMD 0402, reflow soldering, AVX (see smccp.pdf)
+capacitor 0402
+0
+2
+2
+kicad-footprints
+C_0603_1608
+Capacitor SMD 0603, reflow soldering, AVX (see smccp.pdf)
+capacitor 0603
+0
+2
+2
+kicad-footprints
+C_0805_2012
+Capacitor SMD 0805, reflow soldering, AVX (see smccp.pdf)
+capacitor 0805
+0
+2
+2
+kicad-footprints
+C_1206_3216
+Capacitor SMD 1206, reflow soldering, AVX (see smccp.pdf)
+capacitor 1206
+0
+2
+2
+kicad-footprints
+C_1210_3225
+Capacitor SMD 1210, reflow soldering, AVX (see smccp.pdf)
+capacitor 1210
+0
+2
+2
+kicad-footprints
+CommsExt_2x8
+Through hole straight pin header, 1x08, 2.54mm pitch, single row
+Through hole pin header THT 1x08 2.54mm single row
+0
+16
+16
+kicad-footprints
+DIP_switch_4p_angled
+
+
+0
+8
+8
+kicad-footprints
+D_SMA
+Diode SMA
+Diode SMA
+0
+2
+2
+kicad-footprints
+D_SMB
+Diode SMB Standard
+Diode SMB Standard
+0
+2
+2
+kicad-footprints
+D_SMC
+Diode SMC Standard = DO-214AB
+Diode SMC Standard DO-214AB
+0
+2
+2
+kicad-footprints
+D_SOD-123
+SOD-123
+SOD-123
+0
+2
+2
+kicad-footprints
+D_SOD-123F
+D_SOD-123F
+D_SOD-123F
+0
+2
+2
+kicad-footprints
+D_SOD-323
+SOD-323
+SOD-323
+0
+2
+2
+kicad-footprints
+Fiducial_0.7mm
+Circular Fiducial, 1mm bare copper top; 2.54mm keepout
+marker
+0
+1
+1
+kicad-footprints
+Fischer_Elektronik_FK_250_10_LF_PAK
+
+
+0
+2
+1
+kicad-footprints
+Fischer_Elektronik_SK573_37,5
+
+
+0
+0
+0
+kicad-footprints
+Fischer_Elektronik_SK573_50
+
+
+0
+0
+0
+kicad-footprints
+Fuse_Clip_5x20mm
+
+
+0
+4
+2
+kicad-footprints
+Keystone-Fuse-3550-2
+
+KEYSTONE, FUSE, ATO, ATC, HOLDER 3557-2
+0
+4
+2
+kicad-footprints
+L-FERYSTER-DTMSS-27
+
+
+0
+2
+2
+kicad-footprints
+L-FERYSTER-DTMSS-27_22uH
+
+
+0
+2
+2
+kicad-footprints
+L-FERYSTER-DTMSS-27_33uH
+
+
+0
+2
+2
+kicad-footprints
+L-FERYSTER-DTMSS-27_47uH
+
+
+0
+2
+2
+kicad-footprints
+L-FERYSTER-DTMSS-40_68uH
+
+
+0
+2
+2
+kicad-footprints
+L-FERYSTER-DW-3,5
+
+
+0
+2
+2
+kicad-footprints
+LED_0603_D3.0mm
+LED, diameter 3.0mm, 2 pins
+LED diameter 3.0mm 2 pins
+0
+4
+2
+kicad-footprints
+LED_0603_D3.0mm_v2
+LED, diameter 3.0mm, 2 pins
+LED diameter 3.0mm 2 pins
+0
+4
+2
+kicad-footprints
+LIBRESOLAR_LOGO
+
+
+0
+0
+0
+kicad-footprints
+L_WE-TPC-4818
+SELF WE-TPC/M
+
+0
+2
+2
+kicad-footprints
+L_Wuerth_WE-TPC-58xx
+Choke, Drossel, WE-PD2, Typ MS, Wuerth, SMD,
+Choke Drossel WE-PD2 TypMS Wuerth SMD 
+0
+2
+2
+kicad-footprints
+Mousebite_3x0.5
+
+
+0
+0
+0
+kicad-footprints
+Neutrik_NC4MAH
+
+
+0
+5
+5
+kicad-footprints
+Neutrik_NC5FDX-TOP
+
+
+0
+0
+0
+kicad-footprints
+OLED_SSD1306_I2C_0.96
+Through hole straight socket strip, 1x04, 2.54mm pitch, single row (from Kicad 4.0.7), script generated
+Through hole socket strip THT 1x04 2.54mm single row
+0
+4
+4
+kicad-footprints
+OLED_SSD1306_I2C_0.96_no_holes
+Through hole straight socket strip, 1x04, 2.54mm pitch, single row (from Kicad 4.0.7), script generated
+Through hole socket strip THT 1x04 2.54mm single row
+0
+4
+4
+kicad-footprints
+Phoenix_Contact_DMC_0,5_6-G1-2,54_THR
+
+
+0
+12
+6
+kicad-footprints
+Phoenix_Contact_DMC_0,5_16-G1-2,54_THR
+
+
+0
+32
+16
+kicad-footprints
+Phoenix_Contact_MC_1,5_2-G-3,81
+
+
+0
+2
+2
+kicad-footprints
+Phoenix_Contact_MC_1,5_3-G-3,81
+
+
+0
+3
+3
+kicad-footprints
+Phoenix_Contact_MC_1,5_6-G-3,81
+
+
+0
+6
+6
+kicad-footprints
+Phoenix_Contact_MC_1,5_16-G-3,81
+
+
+0
+16
+16
+kicad-footprints
+Phoenix_Contact_MKDSN_2,5-2
+
+
+0
+2
+2
+kicad-footprints
+Phoenix_Contact_MKDS_5-2-7,62
+MKDS 5/2-7,62
+screw terminal
+0
+2
+2
+kicad-footprints
+Phoenix_Contact_MKDS_5-2-9,5
+Phoenix Contact MKDS 5/2-9,52
+
+0
+2
+2
+kicad-footprints
+Phoenix_Contact_MKDS_5-2-952
+<b>MKDS 5/2-9,52</b><p>{return}Source: PHOENIX CONTACT
+
+0
+2
+2
+kicad-footprints
+Phoenix_Contact_MKDS_5-3-9,5
+Phoenix Contact MKDS 5/2-9,52
+
+0
+3
+3
+kicad-footprints
+Phoenix_Contact_PLA_5-2-7,5-ZF
+
+
+0
+2
+2
+kicad-footprints
+Phoenix_Contact_PLH_5-2-7,5-ZF
+
+
+0
+2
+2
+kicad-footprints
+Phoenix_Contact_PTSM_0.5_2-HH-2,5-THR-R16
+
+
+0
+2
+2
+kicad-footprints
+Phoenix_Contact_PT_2,5-2-7,5-H
+
+
+0
+2
+2
+kicad-footprints
+Phoenix_Contact_SPT-2,5-3-V-5,0
+
+
+0
+6
+3
+kicad-footprints
+Phoenix_Contact_SPTAF-1_6-5,0-EL
+
+
+0
+12
+6
+kicad-footprints
+Phoenix_Contact_SPT_5-2-V-7,5-ZB
+
+
+0
+2
+2
+kicad-footprints
+Phoenix_Contact_TDPT_2,5-6-SP-5,08
+
+
+0
+12
+6
+kicad-footprints
+Phoenix_Contact_TDPT_4-2-SP-6,35-ZB
+
+
+0
+2
+2
+kicad-footprints
+RJ12_RJ25_6P6C_Amphenol_54601
+RJ12 connector  https://cdn.amphenol-icc.com/media/wysiwyg/files/drawing/c-bmj-0082.pdf
+RJ12 connector
+0
+6
+6
+kicad-footprints
+RJ25_6P6C_TabUp
+https://katalog.we-online.de/em/datasheet/615006138421.pdf
+RJ25 connector
+0
+6
+6
+kicad-footprints
+RJ25_6P6C_short
+RJ12 connector  https://cdn.amphenol-icc.com/media/wysiwyg/files/drawing/c-bmj-0082.pdf
+RJ12 connector
+0
+6
+6
+kicad-footprints
+RJ45_8P8C
+http://katalog.we-online.de/em/datasheet/615008137121.pdf
+RJ45
+0
+8
+8
+kicad-footprints
+R_0402_1005
+Resistor SMD 0402, reflow soldering, Vishay (see dcrcw.pdf)
+resistor 0402
+0
+2
+2
+kicad-footprints
+R_0603_1608
+Resistor SMD 0603, reflow soldering, Vishay (see dcrcw.pdf)
+resistor 0603
+0
+2
+2
+kicad-footprints
+R_0805_2012
+Resistor SMD 0805, reflow soldering, Vishay (see dcrcw.pdf)
+resistor 0805
+0
+2
+2
+kicad-footprints
+R_1206_3216
+Resistor SMD 1206, reflow soldering, Vishay (see dcrcw.pdf)
+resistor 1206
+0
+2
+2
+kicad-footprints
+R_2010_5025
+Resistor SMD 2010, reflow soldering, Vishay (see dcrcw.pdf)
+resistor 2010
+0
+2
+2
+kicad-footprints
+R_2512_6332
+Resistor SMD 2512, reflow soldering, Vishay (see dcrcw.pdf)
+resistor 2512
+0
+2
+2
+kicad-footprints
+R_Array_Convex_4x0603
+Chip Resistor Network, ROHM MNR14 (see mnr_g.pdf)
+resistor array
+0
+8
+8
+kicad-footprints
+R_Bourns_CRE2512
+Resistor SMD 2512, reflow soldering, Vishay (see dcrcw.pdf)
+resistor 2512
+0
+2
+2
+kicad-footprints
+R_Shunt_2512
+Current Measurement Resistor SMD 2512, reflow soldering, Vishay WSLF or Bourns CCS2H
+resistor 2512
+0
+2
+2
+kicad-footprints
+Resonator_Murata_CSTNE
+
+
+0
+3
+3
+kicad-footprints
+Rotary_Switch_THT
+
+
+0
+6
+5
+kicad-footprints
+SOD-123HE
+
+SOD-123HE, SOD-123
+0
+2
+2
+kicad-footprints
+SOIC-8_3.9x4.9mm_Pitch1.27mm
+8-Lead Plastic Small Outline (SN) - Narrow, 3.90 mm Body [SOIC] (see Microchip Packaging Specification 00000049BS.pdf)
+SOIC 1.27
+0
+8
+8
+kicad-footprints
+SOT-23
+SOT-23, Standard
+SOT-23
+0
+3
+3
+kicad-footprints
+SOT-23-5
+5-pin SOT23 package
+SOT-23-5
+0
+5
+5
+kicad-footprints
+SOT-23-6
+6-pin SOT-23 package
+SOT-23-6
+0
+6
+6
+kicad-footprints
+SW_SPST_6mm
+
+
+0
+4
+2
+kicad-footprints
+SW_SPST_EVQP7A
+Light Touch Switch
+
+0
+4
+2
+kicad-footprints
+SW_Tactile_SKHH_Angled
+tactile switch 6mm ALPS SKHH right angle http://www.alps.com/prod/info/E/HTML/Tact/SnapIn/SKHH/SKHHLUA010.html
+tactile switch 6mm ALPS SKHH right angle
+0
+4
+2
+kicad-footprints
+Sim800L
+
+
+0
+12
+12
+kicad-footprints
+TO-220-3_Horizontal_BottomHeatsink
+TO-220-3, Horizontal, RM 2.54mm, see https://www.vishay.com/docs/66542/to-220-1.pdf
+TO-220-3 Horizontal RM 2.54mm
+0
+3
+3
+kicad-footprints
+TestPoint_0.8mm_hole
+
+
+0
+1
+1
+kicad-footprints
+TestPoint_1mm_pad
+
+
+0
+1
+1
+kicad-footprints
+USB_A_Wuerth_614008235023_Vertical_Stacked
+Stacked USB A connector https://katalog.we-online.de/em/datasheet/614008235023.pdf
+Wuerth stacked USB_A
+0
+12
+9
+kicad-footprints
+USB_A_Wuerth_61400416021_Horizontal
+Stacked USB A connector http://katalog.we-online.de/em/datasheet/61400826021.pdf
+Wuerth stacked USB_A
+0
+6
+5
+kicad-footprints
+USB_A_Wuerth_61400826021_Horizontal_Stacked
+Stacked USB A connector http://katalog.we-online.de/em/datasheet/61400826021.pdf
+Wuerth stacked USB_A
+0
+12
+9
+kicad-footprints
+USB_Micro-B
+http://www.molex.com/pdm_docs/sd/473460001_sd.pdf
+Micro-USB SMD
+0
+9
+6
+kicad-footprints
+USB_Micro-B_10103594-0001LF
+Micro USB Type B 10103594-0001LF
+USB USB_B USB_micro USB_OTG
+0
+17
+6
+kicad-footprints
+VIA-0.3mm
+
+
+0
+1
+1
+kicad-footprints
+VIA-0.4mm
+
+
+0
+1
+1
+kicad-footprints
+VIA-0.5mm
+
+
+0
+1
+1
+kicad-footprints
+VQFN_RGX0011A
+
+
+0
+11
+11
+kicad-footprints
+VSSOP-10_3.0x3.0mm_P0.5mm
+VSSOP-10 3.0 x 3.0, http://www.ti.com/lit/ds/symlink/lm75b.pdf
+VSSOP-10 3.0 x 3.0
+0
+10
+10
+kicad-footprints
+Wago_236-402
+
+
+0
+4
+2
+kicad-footprints
+Wago_236-403
+
+
+0
+6
+3
+kicad-footprints
+Watterott_Logo
+
+
+0
+0
+0
+kicad-footprints
+Wuerth_USB_Micro_USB_vert_Type_B_614105150721
+<b>614105150721</b><p>{return}WR-COM_USB_Micro Type B_Vertical_THT Micro Type B Vertical THT- Tape & Reel not for Pick & Place machine
+
+0
+7
+6
+kicad-footprints
+Wuerth_WP-THRBU
+
+
+0
+9
+1
+kicad-footprints
+Wuerth_WP-THRBU_74650195
+
+
+0
+9
+1
+kicad-footprints
+Wuerth_WP-THRBU_74655095
+
+
+0
+8
+1
+kicad-footprints
+Wuerth_WR-FPC_686112148922
+
+
+0
+14
+12
+kicad-footprints
+Wuerth_WR-FPC_687112149022
+
+
+0
+14
+12
 lib
 ELW2106AA
 Adafruit SSD1306 OLED 1.3 inch 128x64 I2C & SPI https://learn.adafruit.com/monochrome-oled-breakouts/downloads

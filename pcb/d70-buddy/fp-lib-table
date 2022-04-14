@@ -1,3 +1,4 @@
 (fp_lib_table
   (lib (name "lib")(type "KiCad")(uri "${KIPRJMOD}/lib")(options "")(descr ""))
+  (lib (name "OLED SSD1312 KiCAD")(type "KiCad")(uri "${KIPRJMOD}/lib/OLED SSD1312 KiCAD")(options "")(descr ""))
 )

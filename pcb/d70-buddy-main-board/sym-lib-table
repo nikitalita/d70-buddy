@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name "d70-buddy")(type "KiCad")(uri "${KIPRJMOD}/Library.pretty/d70-buddy.kicad_sym")(options "")(descr ""))
+  (lib (name "MCU_RaspberryPi_and_Boards")(type "KiCad")(uri "${KIPRJMOD}/Library.pretty/RP-Pico Libraries/MCU_RaspberryPi_and_Boards.kicad_sym")(options "")(descr ""))
+)
