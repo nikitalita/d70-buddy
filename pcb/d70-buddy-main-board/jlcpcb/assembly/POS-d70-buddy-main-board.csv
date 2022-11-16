@@ -1,0 +1,12 @@
+Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
+C1,100n,C_0805_2012Metric,114.5,-142.0,0.0,top
+D1,1N4148,D_SOD-123,96.0,-121.0,90.0,top
+J1,PJ-327C-4A,PJ-327C-4A,104.0,-139.0,180.0,top
+J2,PJ-327C-4A,PJ-327C-4A,80.5,-139.0,180.0,top
+J3,Conn_02x12_Top_Bottom,PinHeader_2x12_P2.54mm_Vertical,100.5,-50.5,90.0,top
+R1,33R,R_0805_2012Metric,78.232,-126.492,-90.0,top
+R2,10R,R_0805_2012Metric,82.55,-126.492,90.0,top
+R4,220R,R_0805_2012Metric,100.33,-122.682,0.0,top
+R5,270R,R_0805_2012Metric,106.934,-122.682,0.0,top
+U1,H11L1,Everlight_H11L1S,103.73,-113.65,-90.0,top
+U2,Pico,RPi_Pico_SMD_TH,140.4,-118.97,180.0,top

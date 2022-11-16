@@ -1,0 +1,15 @@
+Comment,Designator,Footprint,LCSC
+PJ-327C-4A,"J1,J2",PJ-327C-4A,C145813
+10R,R2,R_0805_2012Metric,C17415
+220R,R4,R_0805_2012Metric,C17557
+270R,R5,R_0805_2012Metric,C17590
+33R,R1,R_0805_2012Metric,C17634
+100n,C1,C_0805_2012Metric,C28233
+H11L1,U1,Everlight_H11L1S,C78589
+1N4148,D1,D_SOD-123,C81598
+MountingHole_3.2mm_M3_ISO7380_Pad,H1,MountingHole_3.2mm_M3_ISO7380_Pad,
+MountingHole_3.2mm_M3_ISO7380_Pad,H2,MountingHole_3.2mm_M3_ISO7380_Pad,
+MountingHole_3.2mm_M3_ISO7380_Pad,H4,MountingHole_3.2mm_M3_ISO7380_Pad,
+MountingHole_3.2mm_M3_ISO7380_Pad,H3,MountingHole_3.2mm_M3_ISO7380_Pad,
+Conn_02x12_Top_Bottom,J3,PinHeader_2x12_P2.54mm_Vertical,
+Pico,U2,RPi_Pico_SMD_TH,

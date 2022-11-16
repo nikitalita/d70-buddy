@@ -1,0 +1,143 @@
+2022-08-05 19:52:21.519 [main] INFO  Freerouting v1.6.2 (build-date: 2022-07-13)
+2022-08-05 19:52:21.530 [main] INFO  Opening 'C:/workspace/d70-buddy/pcb/d70-buddy-main-board\freerouting.dsn'...
+2022-08-05 19:52:22.785 [main] INFO  Opening 'freerouting.rules'...
+2022-08-05 19:52:22.787 [main] ERROR File 'freerouting.rules' was not found.
+2022-08-05 19:52:22.974 [Thread-0] INFO  Starting auto-routing...
+2022-08-05 19:52:22.975 [main] TRACE Method 'MainApplication.main()' was performed in 1.51 seconds.
+2022-08-05 19:52:24.741 [Thread-0] TRACE Method 'BatchAutorouter.autoroute_pass #1 on board 'bf45b7c2f023d5eb7f339fe12b12c85e' making 57 changes' was performed in 1.66 seconds.
+2022-08-05 19:52:25.348 [Thread-0] TRACE Method 'BatchAutorouter.autoroute_pass #2 on board 'ec5684c4c9de7f4dde2a998d3ed8331b' making 49 changes' was performed in 0.59 seconds.
+2022-08-05 19:52:25.463 [Thread-0] TRACE Method 'BatchAutorouter.autoroute_pass #3 on board 'a16f5ae50a53c524d3d4d1cdb46c38d9' making 30 changes' was performed in 0.10 seconds.
+2022-08-05 19:52:25.535 [Thread-0] TRACE Method 'BatchAutorouter.autoroute_pass #4 on board '30b0b9698a3e49eb515b47e65017d8fa' making 3 changes' was performed in 0.06 seconds.
+2022-08-05 19:52:25.546 [Thread-0] TRACE Method 'BatchAutorouter.autoroute_pass #5 on board 'a878c385d69f0792b2b11b71bbf4fff5' making 0 changes' was performed in 0.00 seconds.
+2022-08-05 19:52:25.547 [Thread-0] TRACE Method 'BatchAutorouterThread.thread_action()-autorouting' was performed in 2.57 seconds.
+2022-08-05 19:52:25.548 [Thread-0] INFO  Auto-routing was completed in 2.57 seconds.
+2022-08-05 19:52:25.549 [Thread-0] INFO  Starting route optimization on 15 threads...
+2022-08-05 19:52:26.148 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #1 with 0 items, 9 vias and 1,795,828.80 trace length running on 15 threads.' was performed in 0.59 seconds.
+2022-08-05 19:52:26.578 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #2 with 37 items, 7 vias and 1,801,914.42 trace length running on 15 threads.' was performed in 0.43 seconds.
+2022-08-05 19:52:27.399 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #3 with 36 items, 4 vias and 1,797,010.56 trace length running on 15 threads.' was performed in 0.82 seconds.
+2022-08-05 19:52:27.758 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #4 with 36 items, 3 vias and 1,810,779.32 trace length running on 15 threads.' was performed in 0.36 seconds.
+2022-08-05 19:52:28.295 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #5 with 36 items, 2 vias and 1,789,751.14 trace length running on 15 threads.' was performed in 0.54 seconds.
+2022-08-05 19:52:28.580 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #6 with 37 items, 2 vias and 1,789,666.09 trace length running on 15 threads.' was performed in 0.28 seconds.
+2022-08-05 19:52:29.288 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #7 with 36 items, 1 vias and 1,793,990.93 trace length running on 15 threads.' was performed in 0.71 seconds.
+2022-08-05 19:52:29.498 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #8 with 36 items, 1 vias and 1,791,839.17 trace length running on 15 threads.' was performed in 0.21 seconds.
+2022-08-05 19:52:30.071 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #9 with 36 items, 0 vias and 1,794,405.07 trace length running on 15 threads.' was performed in 0.57 seconds.
+2022-08-05 19:52:30.072 [Thread-0] TRACE Method 'BatchAutorouterThread.thread_action()-routeoptimization' was performed in 4.52 seconds.
+2022-08-05 19:52:30.073 [Thread-0] INFO  Route optimization was completed in 4.52 seconds and it improved the design by ~50.16%.
+2022-08-05 19:52:30.079 [Thread-0] TRACE Method 'BatchAutorouterThread.thread_action()' was performed in 7.11 seconds.
+2022-08-05 19:52:30.080 [Thread-0] INFO  Saving 'C:/workspace/d70-buddy/pcb/d70-buddy-main-board\freerouting.ses'...
+2022-08-05 20:40:05.210 [main] INFO  Freerouting v1.6.2 (build-date: 2022-07-13)
+2022-08-05 20:40:05.227 [main] INFO  Opening 'C:\workspace\d70-buddy\pcb\d70-buddy-main-board\freerouting.dsn'...
+2022-08-05 20:40:06.705 [main] INFO  Opening 'freerouting.rules'...
+2022-08-05 20:40:06.706 [main] ERROR File 'freerouting.rules' was not found.
+2022-08-05 20:40:06.895 [Thread-0] INFO  Starting auto-routing...
+2022-08-05 20:40:06.896 [main] TRACE Method 'MainApplication.main()' was performed in 1.75 seconds.
+2022-08-05 20:40:08.538 [Thread-0] TRACE Method 'BatchAutorouter.autoroute_pass #1 on board '2689ff32cad236634bdd6e62159d07e5' making 60 changes' was performed in 1.53 seconds.
+2022-08-05 20:40:09.271 [Thread-0] TRACE Method 'BatchAutorouter.autoroute_pass #2 on board '1d8d90520b0ec44fa13257e31901300e' making 43 changes' was performed in 0.72 seconds.
+2022-08-05 20:40:09.480 [Thread-0] TRACE Method 'BatchAutorouter.autoroute_pass #3 on board '7a9ab23d1bd530972da42c67bffc439a' making 22 changes' was performed in 0.20 seconds.
+2022-08-05 20:40:09.632 [Thread-0] TRACE Method 'BatchAutorouter.autoroute_pass #4 on board '9b9825ad45429c23f5465b1c12e51a53' making 10 changes' was performed in 0.14 seconds.
+2022-08-05 20:40:09.715 [Thread-0] TRACE Method 'BatchAutorouter.autoroute_pass #5 on board '0d6d79173caf3374fc7588909509e52b' making 11 changes' was performed in 0.07 seconds.
+2022-08-05 20:40:09.730 [Thread-0] TRACE Method 'BatchAutorouter.autoroute_pass #6 on board '1e3bb1826cc3baff2904d9cfa91f9531' making 0 changes' was performed in 0.00 seconds.
+2022-08-05 20:40:09.731 [Thread-0] TRACE Method 'BatchAutorouterThread.thread_action()-autorouting' was performed in 2.83 seconds.
+2022-08-05 20:40:09.732 [Thread-0] INFO  Auto-routing was completed in 2.83 seconds.
+2022-08-05 20:40:09.733 [Thread-0] INFO  Starting route optimization on 15 threads...
+2022-08-05 20:40:10.834 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #1 with 0 items, 6 vias and 1,841,165.05 trace length running on 15 threads.' was performed in 1.09 seconds.
+2022-08-05 20:40:11.260 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #2 with 35 items, 5 vias and 1,842,364.76 trace length running on 15 threads.' was performed in 0.42 seconds.
+2022-08-05 20:40:12.009 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #3 with 35 items, 2 vias and 1,815,982.21 trace length running on 15 threads.' was performed in 0.75 seconds.
+2022-08-05 20:40:12.284 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #4 with 35 items, 2 vias and 1,793,614.14 trace length running on 15 threads.' was performed in 0.27 seconds.
+2022-08-05 20:40:13.136 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #5 with 39 items, 1 vias and 1,789,776.18 trace length running on 15 threads.' was performed in 0.85 seconds.
+2022-08-05 20:40:13.336 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #6 with 39 items, 1 vias and 1,789,146.56 trace length running on 15 threads.' was performed in 0.20 seconds.
+2022-08-05 20:40:13.888 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #7 with 39 items, 0 vias and 1,795,745.30 trace length running on 15 threads.' was performed in 0.55 seconds.
+2022-08-05 20:40:13.890 [Thread-0] TRACE Method 'BatchAutorouterThread.thread_action()-routeoptimization' was performed in 4.16 seconds.
+2022-08-05 20:40:13.891 [Thread-0] INFO  Route optimization was completed in 4.16 seconds and it improved the design by ~51.27%.
+2022-08-05 20:40:13.897 [Thread-0] TRACE Method 'BatchAutorouterThread.thread_action()' was performed in 7.00 seconds.
+2022-08-05 20:40:13.898 [Thread-0] INFO  Saving 'C:\workspace\d70-buddy\pcb\d70-buddy-main-board\freerouting.ses'...
+2022-08-05 21:05:55.599 [main] INFO  Freerouting v1.6.2 (build-date: 2022-07-13)
+2022-08-05 21:05:55.616 [main] INFO  Opening 'C:\workspace\d70-buddy\pcb\d70-buddy-main-board\freerouting.dsn'...
+2022-08-05 21:05:57.216 [main] INFO  Opening 'freerouting.rules'...
+2022-08-05 21:05:57.217 [main] ERROR File 'freerouting.rules' was not found.
+2022-08-05 21:05:57.416 [main] TRACE Method 'MainApplication.main()' was performed in 1.88 seconds.
+2022-08-05 21:06:00.244 [Thread-0] ERROR null
+java.util.ConcurrentModificationException: null
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:1013) ~[?:?]
+	at java.util.ArrayList$Itr.next(ArrayList.java:967) ~[?:?]
+	at app.freerouting.interactive.BatchAutorouterThread.thread_action(BatchAutorouterThread.java:47) ~[freerouting-1.6.2.jar:unspecified]
+	at app.freerouting.interactive.InteractiveActionThread.run(InteractiveActionThread.java:49) ~[freerouting-1.6.2.jar:unspecified]
+2022-08-05 21:07:44.584 [main] INFO  Freerouting v1.6.2 (build-date: 2022-07-13)
+2022-08-05 21:07:44.594 [main] INFO  Opening 'C:\workspace\d70-buddy\pcb\d70-buddy-main-board\freerouting.dsn'...
+2022-08-05 21:07:46.063 [main] INFO  Opening 'freerouting.rules'...
+2022-08-05 21:07:46.064 [main] ERROR File 'freerouting.rules' was not found.
+2022-08-05 21:07:46.261 [Thread-0] INFO  Starting auto-routing...
+2022-08-05 21:07:46.261 [main] TRACE Method 'MainApplication.main()' was performed in 1.74 seconds.
+2022-08-05 21:07:47.969 [Thread-0] TRACE Method 'BatchAutorouter.autoroute_pass #1 on board '4850d27e01193974875dffc041ff7f3c' making 61 changes' was performed in 1.61 seconds.
+2022-08-05 21:07:48.398 [Thread-0] TRACE Method 'BatchAutorouter.autoroute_pass #2 on board 'a3d0c4754b8c453069a061b202654e90' making 18 changes' was performed in 0.41 seconds.
+2022-08-05 21:07:48.466 [Thread-0] TRACE Method 'BatchAutorouter.autoroute_pass #3 on board 'f0876b614b7e6fc16577b4bf62180c6e' making 7 changes' was performed in 0.06 seconds.
+2022-08-05 21:07:48.479 [Thread-0] TRACE Method 'BatchAutorouter.autoroute_pass #4 on board 'f42bc1c3862dc4db183688312d0204b3' making 0 changes' was performed in 0.00 seconds.
+2022-08-05 21:07:48.480 [Thread-0] TRACE Method 'BatchAutorouterThread.thread_action()-autorouting' was performed in 2.22 seconds.
+2022-08-05 21:07:48.481 [Thread-0] INFO  Auto-routing was completed in 2.22 seconds.
+2022-08-05 21:07:48.481 [Thread-0] INFO  Starting route optimization on 15 threads...
+2022-08-05 21:07:48.960 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #1 with 0 items, 5 vias and 1,832,620.71 trace length running on 15 threads.' was performed in 0.47 seconds.
+2022-08-05 21:07:49.426 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #2 with 34 items, 5 vias and 1,811,005.24 trace length running on 15 threads.' was performed in 0.46 seconds.
+2022-08-05 21:07:49.803 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #3 with 37 items, 4 vias and 1,790,742.69 trace length running on 15 threads.' was performed in 0.37 seconds.
+2022-08-05 21:07:50.118 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #4 with 37 items, 4 vias and 1,789,087.82 trace length running on 15 threads.' was performed in 0.31 seconds.
+2022-08-05 21:07:50.447 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #5 with 37 items, 3 vias and 1,786,454.70 trace length running on 15 threads.' was performed in 0.33 seconds.
+2022-08-05 21:07:50.449 [Thread-0] TRACE Method 'BatchAutorouterThread.thread_action()-routeoptimization' was performed in 1.97 seconds.
+2022-08-05 21:07:50.450 [Thread-0] INFO  Route optimization was completed in 1.97 seconds and it improved the design by ~51.26%.
+2022-08-05 21:07:50.456 [Thread-0] TRACE Method 'BatchAutorouterThread.thread_action()' was performed in 4.20 seconds.
+2022-08-05 21:07:50.457 [Thread-0] INFO  Saving 'C:\workspace\d70-buddy\pcb\d70-buddy-main-board\freerouting.ses'...
+2022-08-05 21:13:38.484 [main] INFO  Freerouting v1.6.2 (build-date: 2022-07-13)
+2022-08-05 21:13:38.494 [main] INFO  Opening 'C:\workspace\d70-buddy\pcb\d70-buddy-main-board\freerouting.dsn'...
+2022-08-05 21:13:40.008 [main] INFO  Opening 'freerouting.rules'...
+2022-08-05 21:13:40.008 [main] ERROR File 'freerouting.rules' was not found.
+2022-08-05 21:13:40.195 [main] TRACE Method 'MainApplication.main()' was performed in 1.77 seconds.
+2022-08-05 21:13:41.501 [Thread-0] ERROR null
+java.util.ConcurrentModificationException: null
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:1013) ~[?:?]
+	at java.util.ArrayList$Itr.next(ArrayList.java:967) ~[?:?]
+	at app.freerouting.interactive.BatchAutorouterThread.thread_action(BatchAutorouterThread.java:47) ~[freerouting-1.6.2.jar:unspecified]
+	at app.freerouting.interactive.InteractiveActionThread.run(InteractiveActionThread.java:49) ~[freerouting-1.6.2.jar:unspecified]
+2022-08-05 21:13:56.584 [main] INFO  Freerouting v1.6.2 (build-date: 2022-07-13)
+2022-08-05 21:13:56.599 [main] INFO  Opening 'C:\workspace\d70-buddy\pcb\d70-buddy-main-board\freerouting.dsn'...
+2022-08-05 21:13:58.091 [main] INFO  Opening 'freerouting.rules'...
+2022-08-05 21:13:58.092 [main] ERROR File 'freerouting.rules' was not found.
+2022-08-05 21:13:58.333 [main] TRACE Method 'MainApplication.main()' was performed in 1.81 seconds.
+2022-08-05 21:13:58.332 [Thread-0] INFO  Starting auto-routing...
+2022-08-05 21:14:00.007 [Thread-0] TRACE Method 'BatchAutorouter.autoroute_pass #1 on board '5c63e35784c5750da8454d0083ea5673' making 63 changes' was performed in 1.58 seconds.
+2022-08-05 21:14:00.398 [Thread-0] TRACE Method 'BatchAutorouter.autoroute_pass #2 on board '14f7f6c63484e9afcd1b6a03e7afd9de' making 14 changes' was performed in 0.37 seconds.
+2022-08-05 21:14:00.470 [Thread-0] TRACE Method 'BatchAutorouter.autoroute_pass #3 on board '5049803467ff1fe3748b144d48a73471' making 5 changes' was performed in 0.06 seconds.
+2022-08-05 21:14:00.482 [Thread-0] TRACE Method 'BatchAutorouter.autoroute_pass #4 on board '0a5b8041def8871b9efb7b0a3560d72a' making 0 changes' was performed in 0.00 seconds.
+2022-08-05 21:14:00.483 [Thread-0] TRACE Method 'BatchAutorouterThread.thread_action()-autorouting' was performed in 2.15 seconds.
+2022-08-05 21:14:00.484 [Thread-0] INFO  Auto-routing was completed in 2.15 seconds.
+2022-08-05 21:14:00.485 [Thread-0] INFO  Starting route optimization on 15 threads...
+2022-08-05 21:14:01.029 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #1 with 0 items, 5 vias and 1,834,302.59 trace length running on 15 threads.' was performed in 0.54 seconds.
+2022-08-05 21:14:01.337 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #2 with 33 items, 5 vias and 1,806,263.00 trace length running on 15 threads.' was performed in 0.31 seconds.
+2022-08-05 21:14:01.780 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #3 with 34 items, 3 vias and 1,782,751.50 trace length running on 15 threads.' was performed in 0.44 seconds.
+2022-08-05 21:14:02.059 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #4 with 35 items, 3 vias and 1,781,318.24 trace length running on 15 threads.' was performed in 0.28 seconds.
+2022-08-05 21:14:02.585 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #5 with 35 items, 2 vias and 1,779,881.02 trace length running on 15 threads.' was performed in 0.52 seconds.
+2022-08-05 21:14:02.586 [Thread-0] TRACE Method 'BatchAutorouterThread.thread_action()-routeoptimization' was performed in 2.10 seconds.
+2022-08-05 21:14:02.587 [Thread-0] INFO  Route optimization was completed in 2.10 seconds and it improved the design by ~51.49%.
+2022-08-05 21:14:02.594 [Thread-0] TRACE Method 'BatchAutorouterThread.thread_action()' was performed in 4.26 seconds.
+2022-08-05 21:14:02.596 [Thread-0] INFO  Saving 'C:\workspace\d70-buddy\pcb\d70-buddy-main-board\freerouting.ses'...
+2022-08-05 21:16:43.800 [main] INFO  Freerouting v1.6.2 (build-date: 2022-07-13)
+2022-08-05 21:16:43.811 [main] INFO  Opening 'C:\workspace\d70-buddy\pcb\d70-buddy-main-board\freerouting.dsn'...
+2022-08-05 21:16:45.257 [main] INFO  Opening 'freerouting.rules'...
+2022-08-05 21:16:45.258 [main] ERROR File 'freerouting.rules' was not found.
+2022-08-05 21:16:45.443 [Thread-0] INFO  Starting auto-routing...
+2022-08-05 21:16:45.443 [main] TRACE Method 'MainApplication.main()' was performed in 1.70 seconds.
+2022-08-05 21:16:47.226 [Thread-0] TRACE Method 'BatchAutorouter.autoroute_pass #1 on board '5c63e35784c5750da8454d0083ea5673' making 63 changes' was performed in 1.69 seconds.
+2022-08-05 21:16:47.626 [Thread-0] TRACE Method 'BatchAutorouter.autoroute_pass #2 on board '14f7f6c63484e9afcd1b6a03e7afd9de' making 14 changes' was performed in 0.38 seconds.
+2022-08-05 21:16:47.680 [Thread-0] TRACE Method 'BatchAutorouter.autoroute_pass #3 on board '5049803467ff1fe3748b144d48a73471' making 5 changes' was performed in 0.04 seconds.
+2022-08-05 21:16:47.693 [Thread-0] TRACE Method 'BatchAutorouter.autoroute_pass #4 on board '0a5b8041def8871b9efb7b0a3560d72a' making 0 changes' was performed in 0.00 seconds.
+2022-08-05 21:16:47.694 [Thread-0] TRACE Method 'BatchAutorouterThread.thread_action()-autorouting' was performed in 2.25 seconds.
+2022-08-05 21:16:47.695 [Thread-0] INFO  Auto-routing was completed in 2.25 seconds.
+2022-08-05 21:16:47.696 [Thread-0] INFO  Starting route optimization on 15 threads...
+2022-08-05 21:16:48.240 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #1 with 0 items, 5 vias and 1,834,302.59 trace length running on 15 threads.' was performed in 0.54 seconds.
+2022-08-05 21:16:48.536 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #2 with 33 items, 5 vias and 1,806,725.10 trace length running on 15 threads.' was performed in 0.29 seconds.
+2022-08-05 21:16:49.145 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #3 with 34 items, 3 vias and 1,795,792.27 trace length running on 15 threads.' was performed in 0.61 seconds.
+2022-08-05 21:16:49.415 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #4 with 34 items, 3 vias and 1,789,797.39 trace length running on 15 threads.' was performed in 0.27 seconds.
+2022-08-05 21:16:50.152 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #5 with 34 items, 1 vias and 1,781,196.82 trace length running on 15 threads.' was performed in 0.73 seconds.
+2022-08-05 21:16:50.374 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #6 with 34 items, 1 vias and 1,780,701.67 trace length running on 15 threads.' was performed in 0.22 seconds.
+2022-08-05 21:16:51.088 [Thread-0] TRACE Method 'BatchOptRouteMT.opt_route_pass #7 with 34 items, 0 vias and 1,780,443.66 trace length running on 15 threads.' was performed in 0.71 seconds.
+2022-08-05 21:16:51.089 [Thread-0] TRACE Method 'BatchAutorouterThread.thread_action()-routeoptimization' was performed in 3.39 seconds.
+2022-08-05 21:16:51.090 [Thread-0] INFO  Route optimization was completed in 3.39 seconds and it improved the design by ~51.47%.
+2022-08-05 21:16:51.096 [Thread-0] TRACE Method 'BatchAutorouterThread.thread_action()' was performed in 5.65 seconds.
+2022-08-05 21:16:51.097 [Thread-0] INFO  Saving 'C:\workspace\d70-buddy\pcb\d70-buddy-main-board\freerouting.ses'...
